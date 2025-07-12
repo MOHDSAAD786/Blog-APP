@@ -72,7 +72,7 @@ const UpdateBlog = () => {
         formData.append("file", blogData.thumbnail);
         try {
             setLoading(true)
-            const res = await axios.put(`http://localhost:5100/api/v1/blog/${id}`, formData, {
+            const res = await axios.put(`https://blog-app-ncar.onrender.com/api/v1/blog/${id}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 },
@@ -118,7 +118,7 @@ const UpdateBlog = () => {
 
     const deleteBlog = async () => {
         try {
-            const res = await axios.delete(`http://localhost:5100/api/v1/blog/delete/${id}`, { withCredentials: true })
+            const res = await axios.delete(`https://blog-app-ncar.onrender.com/api/v1/blog/delete/${id}`, { withCredentials: true })
             if (res.data.success) {
                 const updatedBlogData = blog.filter((blogItem) => blogItem?._id !== id);
                 dispatch(setBlog(updatedBlogData))
